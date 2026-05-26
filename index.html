@@ -1,249 +1,330 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praapti Agarwal | Applied Science Portfolio</title>
+    <title>Praapti Agarwal - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        base: '#f7fafc',
-                        dark: '#0f1724',
-                        accent: '#1f6feb',
-                        thermo: '#d6ff6a',
-                        iot: '#66d6e8'
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        body { background-color: #f7fafc; color: #0f1724; }
-        .nav-link { transition: all 0.2s ease-in-out; }
-        .nav-link:hover { color: #1f6feb; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Subtle Grid for Hero Section */
+        .bg-grid-pattern {
+            background-color: #0b1120;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-thermo selection:text-dark">
+<body class="bg-[#f8fafc] text-slate-800">
 
-    <!-- Sticky Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-base/90 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-        <div class="font-bold text-xl tracking-tight">Praapti<span class="text-accent">Agarwal</span></div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#achievements" class="nav-link">Achievements</a>
-            <a href="#contact" class="nav-link">Contact</a>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-semibold text-lg">Praapti Agarwal</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500">
+                <a href="#about" class="text-blue-600 border-b-2 border-blue-600 pb-5 pt-5">About</a>
+                <a href="#projects" class="hover:text-slate-900 pt-5">Projects</a>
+                <a href="#skills" class="hover:text-slate-900 pt-5">Skills</a>
+                <a href="#contact" class="hover:text-slate-900 pt-5">Contact</a>
+            </div>
+            <button class="bg-[#0b1120] text-white px-4 py-2 rounded text-sm font-medium flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                CV
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="px-6 pt-32 pb-20 max-w-5xl mx-auto mt-8">
-        <div class="inline-block bg-gray-200 text-dark text-xs font-mono font-bold px-3 py-1 rounded-full mb-6">
-            Grade 10, IB • Chaman Bhartiya School
-        </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-            Deconstructing systems.<br />
-            <span class="text-accent">Building solutions.</span>
-        </h1>
-        <p class="text-xl text-gray-600 max-w-3xl mb-10 leading-relaxed">
-            How can we use what we already know in smarter ways to fix the things that aren't working? I'm deeply interested in chemistry, physics, and AI, applying scientific curiosity and practical business sense to create real-world impact.
-        </p>
-        <div class="flex space-x-4">
-            <a href="#projects" class="bg-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-accent transition-colors shadow-lg">View My Work</a>
-            <a href="#contact" class="border-2 border-gray-300 px-6 py-3 rounded text-sm font-semibold hover:border-accent hover:text-accent transition-colors">Collaborate</a>
-        </div>
-    </header>
+    <section class="bg-grid-pattern pt-32 pb-20 px-6 text-white min-h-[90vh] flex flex-col justify-center relative">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="flex items-center gap-4 text-xs font-semibold tracking-widest text-blue-400 mb-6 uppercase">
+                <div class="w-8 h-[1px] bg-blue-400"></div>
+                Grade 10 IB · Chaman Bhartiya School
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Praapti Agarwal</h1>
+            <h2 class="text-2xl md:text-3xl text-slate-400 italic font-light mb-8">Science, Innovation & Creative Curiosity</h2>
+            
+            <p class="max-w-xl text-slate-300 text-lg mb-10 leading-relaxed">
+                It started with a small astronomy booklet at age seven. Now I build projects, compete internationally, and ask how the universe works — then try to fix what isn't.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 mb-16">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded text-sm font-medium flex items-center gap-2 transition">
+                    View Projects <span>→</span>
+                </a>
+                <a href="#contact" class="border border-slate-600 hover:border-slate-400 text-white px-6 py-3 rounded text-sm font-medium transition">
+                    Get In Touch
+                </a>
+            </div>
 
-    <hr class="border-gray-200 max-w-5xl mx-auto" />
+            <!-- Social & Stats -->
+            <div class="flex flex-col md:flex-row gap-12 mt-auto pt-12 border-t border-slate-800">
+                <div class="flex gap-6 text-slate-400 text-sm font-medium">
+                    <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg> GitHub</span>
+                    <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn</span>
+                    <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Email</span>
+                </div>
+                
+                <div class="flex gap-8 md:ml-auto">
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">6+</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">Competitions</div>
+                    </div>
+                    <div class="w-[1px] bg-slate-800"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">2</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">First Places</div>
+                    </div>
+                    <div class="w-[1px] bg-slate-800"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">2</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="px-6 py-24 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 flex items-center">
-            <span class="w-8 h-1 bg-accent mr-4"></span> The Mechanics of My World
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-700 leading-relaxed">
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <p class="mb-6">
-                    When I was in second grade, my uncle brought home a DIY solar system kit. The models were fun, but it was the small booklet at the bottom of the box that changed everything. It was my first realization that there is a massive, complex system governing the universe, and we can actually understand it. 
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    I have changed schools seven times, spending most of my childhood in Canada before moving to Bangalore at thirteen. Restarting so many times taught me something critical: I approach new environments exactly the way I approach science — observe, find the patterns, and figure out the mechanics.
                 </p>
-                <p class="mb-6">
-                    That drive to deconstruct things became my greatest survival tool. Moving schools seven times—including a massive jump from Canada to Bangalore at thirteen—taught me to approach new environments exactly like science: observe, look for patterns, and figure out the mechanics.
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    Growing up in a Marwari family where business and problem-solving are dinner-table conversations gave me a second lens: the scientific curiosity to obsess over how things work, and the practical instinct to build things that actually fix problems.
                 </p>
-                <p>
-                    Growing up in a Marwari family, business talk and "what problem does this solve?" was normal dinner conversation. Today, my two sides meet right there: the scientific curiosity to obsess over how the universe works, and the ingrained, practical sense to build things that actually fix problems.
-                </p>
+                <div class="grid grid-cols-2 gap-4 text-sm text-slate-600">
+                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Bangalore, India</div>
+                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg> Grade 10, IB Programme</div>
+                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Multiple Award Winner</div>
+                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg> Science & Innovation</div>
+                </div>
             </div>
-            <div class="bg-white p-8 border border-gray-200 rounded-xl shadow-sm">
-                <h3 class="text-lg font-bold text-dark mb-4 border-b border-gray-100 pb-2">The Multi-Disciplinary Approach</h3>
-                <ul class="space-y-4 text-sm">
-                    <li><strong class="text-dark block mb-1">Core Sciences & AI:</strong> Exploring how chemistry, physics, and biology interconnect to explain reality, while investigating how AI transforms research, efficiency, and medical engineering.</li>
-                    <li><strong class="text-dark block mb-1">Creative Problem Solving:</strong> Crocheting, textured art, knitting, and playing piano. The patience built doing art directly translates to debugging a failing science project.</li>
-                    <li><strong class="text-dark block mb-1">Balance of Pace:</strong> Badminton for fast, loud, active focus. Chess for slow, quiet, strategic thinking where every mistake is your own.</li>
-                </ul>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" alt="Science Lab" class="rounded-2xl shadow-xl">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 max-w-xs">
+                    <div class="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">Latest Achievement</div>
+                    <div class="font-bold text-slate-900">1st Place · Lobachevsky International</div>
+                    <div class="text-xs text-slate-500 mt-1">Lomonosov Moscow State University</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Grid -->
-    <section id="projects" class="bg-white py-24 border-y border-gray-200">
-        <div class="px-6 max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="w-8 h-1 bg-thermo mr-4"></span> Applied Projects
-            </h2>
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 bg-[#f0f4f8]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-end gap-4 mb-12">
+                <div class="text-blue-500 font-medium font-mono text-sm mb-2">02</div>
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Projects</h2>
+                    <p class="text-slate-600 max-w-xl">Selected competition projects spanning renewable energy, chemistry, and agricultural technology.</p>
+                </div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <!-- The Midnight Sun -->
-                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-thermo/20 rounded-bl-full -z-10"></div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-thermo/40 text-dark text-xs font-bold px-2 py-1 rounded">Physics / Energy</span>
-                        <span class="text-xs font-mono text-gray-500">1st Place - Int'l</span>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-emerald-600 border border-emerald-200 bg-emerald-50 px-3 py-1 rounded-full">Award Won</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">The Midnight Sun</h3>
-                    <p class="text-gray-600 text-sm mb-6">
-                        A concept generating electricity at night by utilizing temperature differences between surfaces and the surrounding environment, exploring alternatives beyond traditional solar power.
-                    </p>
-                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-500">BOM Cost: ₹1,400 (w/o future investigations)</span>
-                        <span class="text-accent text-sm font-semibold">Lobachevsky Festival (Russia)</span>
+                    <div class="text-[10px] font-bold tracking-widest text-blue-400 uppercase mb-2">Physics · Renewable Energy · 2024</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">The Midnight Sun — Thermoelectric Generator</h3>
+                    <p class="text-sm text-slate-600 mb-6 line-clamp-4">Designed a thermoelectric generator that produces electricity at night by harnessing temperature differences between surfaces and the surrounding environment. Won 1st place in the International First Lobachevsky Competition.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Physics</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Thermodynamics</span>
                     </div>
+                    <a href="#" class="text-sm font-semibold text-blue-600 flex items-center gap-1">Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                 </div>
 
-                <!-- Eco-Catalyst -->
-                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-gray-200 text-dark text-xs font-bold px-2 py-1 rounded">Chemistry</span>
-                        <span class="text-xs font-mono text-gray-500">INSEF Round 2</span>
+                <!-- Project 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-amber-600 border border-amber-200 bg-amber-50 px-3 py-1 rounded-full">Advanced</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">The Eco-Catalyst</h3>
-                    <p class="text-gray-600 text-sm mb-6">
-                        Redesigning automotive catalytic converters to not just reduce harmful gases, but convert CO2 emissions into methane for potential reuse as vehicle fuel.
-                    </p>
-                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-500">Status: Research & Design</span>
+                    <div class="text-[10px] font-bold tracking-widest text-blue-400 uppercase mb-2">Chemistry · 2024</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Eco-Catalyst — Reimagined Car Exhaust System</h3>
+                    <p class="text-sm text-slate-600 mb-6 line-clamp-4">Redesigned the catalytic converter to convert CO2 emissions into reusable methane fuel, combining pollution reduction with on-board energy recovery. Advanced to Round 2 of INSEF.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Chemistry</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Sustainability</span>
                     </div>
+                    <a href="#" class="text-sm font-semibold text-blue-600 flex items-center gap-1">Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                 </div>
 
-                <!-- Smart Dog Collar -->
-                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-iot/40 text-dark text-xs font-bold px-2 py-1 rounded">IoT / Health Tech</span>
+                <!-- Project 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-emerald-600 border border-emerald-200 bg-emerald-50 px-3 py-1 rounded-full">Award Won</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Seizure-Detecting Collar</h3>
-                    <p class="text-gray-600 text-sm mb-6">
-                        A smart dog collar designed to monitor changes in movement and behavior patterns to indicate seizure activity, allowing owners to respond rapidly during emergencies.
-                    </p>
-                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-500">Event: Stonehill Technofest</span>
+                    <div class="text-[10px] font-bold tracking-widest text-blue-400 uppercase mb-2">Engineering · Agritech · 2024</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Agricultural Drone System</h3>
+                    <p class="text-sm text-slate-600 mb-6 line-clamp-4">Developed affordable drones for crop monitoring and field spraying, designed to reduce manual labour and improve accessibility for small-scale farmers. Won 1st place at India Rising Techventure.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Engineering</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-md">Agritech</span>
                     </div>
+                    <a href="#" class="text-sm font-semibold text-blue-600 flex items-center gap-1">Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                 </div>
-
-                <!-- Agri-Drone -->
-                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-gray-200 text-dark text-xs font-bold px-2 py-1 rounded">Robotics / Agriculture</span>
-                        <span class="text-xs font-mono text-gray-500">1st Place</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Accessible Agri-Drone</h3>
-                    <p class="text-gray-600 text-sm mb-6">
-                        An affordable drone system for farmers to monitor crops, spray, and manage tasks, drastically reducing manual effort compared to existing market solutions.
-                    </p>
-                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-500">Event: India Rising Techventure</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="px-6 py-24 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 flex items-center">
-            <span class="w-8 h-1 bg-accent mr-4"></span> Experience & Competitions
-        </h2>
-        
-        <div class="space-y-6">
-            
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">Harvard Crimson Business Competition</h4>
-                    <p class="text-sm text-gray-600 mt-1">Winner & Invitee to Harvard University, USA.</p>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex items-end gap-4 mb-12">
+            <div class="text-blue-500 font-medium font-mono text-sm mb-2">03</div>
+            <div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Skills</h2>
+                <p class="text-slate-600">Scientific curiosity, creative expression, and strategic thinking — all feeding into the same engine.</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Sciences -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg></div>
+                    <h3 class="font-bold text-slate-900">Sciences</h3>
                 </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Business / Pitch</span>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Chemistry</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Physics</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Biology</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Astronomy</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Psychology</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">AI & Technology</span>
+                </div>
             </div>
 
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">Tinkerfest — Shark Tank Pitch</h4>
-                    <p class="text-sm text-gray-600 mt-1">Secured ₹15,000 investment for a collaborative project while managing event volunteer duties.</p>
+            <!-- Creative Arts -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg></div>
+                    <h3 class="font-bold text-slate-900">Creative Arts</h3>
                 </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Entrepreneurship</span>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Drawing</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Painting</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Textured Art</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Macramé</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Dance</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Piano</span>
+                </div>
             </div>
 
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">Interhouse Debate — Best Speaker</h4>
-                    <p class="text-sm text-gray-600 mt-1">Realized that confidence isn't about being sure you're right, but being okay with speaking your mind.</p>
+            <!-- Research & Innovation -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                    <h3 class="font-bold text-slate-900">Research & Innovation</h3>
                 </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Public Speaking</span>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Project Design</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Experimental Design</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Pitching & Presenting</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Scientific Writing</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Renewable Energy</span>
+                </div>
             </div>
 
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">Stonehill Science Bowl</h4>
-                    <p class="text-sm text-gray-600 mt-1">Fast-paced collaborative problem solving across multiple scientific disciplines.</p>
+            <!-- Strategy & Leadership -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
+                    <h3 class="font-bold text-slate-900">Strategy & Leadership</h3>
                 </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Science Theory</span>
-            </div>
-
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">CBS Triumph Chess Competition</h4>
-                    <p class="text-sm text-gray-600 mt-1">Secured 2nd place. Thriving in the high-pressure, silent, and internal strategy environment.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Chess</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Debating</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Public Speaking</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Math Tutoring</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Event Volunteering</span>
+                    <span class="bg-[#f0f4f8] text-slate-700 text-sm px-4 py-2 rounded-md border border-slate-200">Teamwork</span>
                 </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Strategy</span>
             </div>
-
-            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6">
-                <div>
-                    <h4 class="text-lg font-bold">Peer Education</h4>
-                    <p class="text-sm text-gray-600 mt-1">Taught complex math concepts to sixth-grade students in after-school sessions.</p>
-                </div>
-                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Leadership</span>
-            </div>
-
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-dark text-white py-16">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Let's Build Something.</h2>
-            <p class="text-gray-400 mb-10 max-w-xl mx-auto">
-                Whether it's discussing the intersection of AI and healthcare, collaborating on a new hardware build, or just talking science. 
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 font-mono text-sm">
-                <a href="mailto:agarwalpraapti736@gmail.com" class="bg-accent hover:bg-blue-500 text-white px-6 py-3 rounded transition-colors shadow-lg">
-                    agarwalpraapti736@gmail.com
-                </a>
-                <span class="text-gray-500">+91 8019867512  //  +91 8074214378</span>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-[#0b1120] text-white py-24 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-end gap-4 mb-12 border-b border-slate-800 pb-6">
+                <div class="text-blue-500 font-medium font-mono text-sm mb-2">04</div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Contact</h2>
+                    <p class="text-slate-400 max-w-xl">Interested in collaboration, competitions, or just want to talk about science? I would love to hear from you.</p>
+                </div>
             </div>
-            <p class="text-xs text-gray-600 font-mono">
-                &copy; 2026 Praapti Agarwal. Hand-coded for applied science.
-            </p>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                        <div>
+                            <div class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-1">Email</div>
+                            <div class="text-slate-200">agarwalpraapti736@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div>
+                        <div>
+                            <div class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-1">School</div>
+                            <div class="text-slate-200">Chaman Bhartiya School, Bangalore</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg></div>
+                        <div>
+                            <div class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-1">GitHub</div>
+                            <div class="text-slate-200">github.com/praaptiagarwal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">Name</label>
+                            <input type="text" placeholder="Your name" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">Email</label>
+                            <input type="email" placeholder="your@email.com" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">Subject</label>
+                        <input type="text" placeholder="Collaboration enquiry" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold tracking-widest text-slate-500 uppercase mb-2">Message</label>
+                        <textarea rows="4" placeholder="Tell me about your project..." class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-bold flex items-center gap-2 transition">
+                        Send Message <span>→</span>
+                    </button>
+                </form>
+            </div>
         </div>
-    </footer>
+    </section>
 
 </body>
 </html>
