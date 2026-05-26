@@ -1,516 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praapti Agarwal | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- EXACT COLOR PALETTE --- */
-        :root {
-            --bg-white: #ffffff;
-            --dark-brown: #2d241e; /* From your contact image */
-            --light-brown: #7a6859; /* Softer brown for readable text */
-            --sage-green: #aebfb0;
-            --pearl-blue: #dce4eb;
-            --modal-bg: #141824; /* Matches the dark modal in your drone image */
-            --modal-border: #232838;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-white);
-            color: var(--light-brown);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-brown);
-            font-weight: 600;
-        }
-
-        /* --- STICKY NAVIGATION BAR --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 25px 0;
-            z-index: 1000;
-            text-align: center;
-            box-shadow: 0 1px 15px rgba(0,0,0,0.03);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark-brown);
-            margin: 0 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--sage-green); }
-
-        /* --- COOL SLIDER TRANSITIONS --- */
-        .slide-left { opacity: 0; transform: translateX(-150px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .slide-right { opacity: 0; transform: translateX(150px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .slide-up { opacity: 0; transform: translateY(100px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        .visible { opacity: 1; transform: translate(0); }
-
-        /* --- GLOBAL SECTION SPACING --- */
-        section {
-            padding: 140px 12%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 70px;
-        }
-
-        /* --- 1. HOME PAGE (IMAGE PLACEHOLDER) --- */
-        #home {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            /* Put your background image link here */
-            background-color: #fbf9f6; 
-            background-image: url('ADD_YOUR_IMAGE_LINK_HERE.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .home-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .home-content h1 {
-            font-size: 6rem;
-            letter-spacing: -2px;
-            margin-bottom: 10px;
-            color: var(--dark-brown);
-        }
-
-        .home-content p {
-            font-size: 1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--light-brown);
-            font-weight: 700;
-        }
-
-        /* --- 2. INTRO PAGE (SPLIT SCREEN) --- */
-        .intro-container {
-            display: flex;
-            gap: 80px;
-            align-items: flex-start;
-        }
-
-        .intro-box {
-            flex: 1;
-            font-size: 1.1rem;
-        }
-
-        /* --- 3. ABOUT ME (CENTERED) --- */
-        #about { align-items: center; }
-        
-        .about-container {
-            max-width: 900px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .about-container p { margin-bottom: 25px; }
-
-        /* --- 4. ACHIEVEMENTS (SQUARES) --- */
-        .grid-squares {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .square {
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-
-        .square:hover { transform: translateY(-10px) scale(1.02); }
-
-        .square:nth-child(odd) { background-color: var(--pearl-blue); }
-        .square:nth-child(even) { background-color: var(--sage-green); }
-
-        .square h3 {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.1rem;
-            color: var(--dark-brown);
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        /* --- MODAL (EXACTLY LIKE IMAGE 2) --- */
-        .modal-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-
-        .modal-bg.active { opacity: 1; pointer-events: all; }
-
-        .modal-window {
-            background: var(--modal-bg);
-            border: 1px solid var(--modal-border);
-            width: 90%;
-            max-width: 1100px;
-            border-radius: 12px;
-            padding: 40px;
-            color: #ffffff;
-            transform: scale(0.95);
-            transition: transform 0.4s ease;
-            position: relative;
-        }
-
-        .modal-bg.active .modal-window { transform: scale(1); }
-
-        .modal-close {
-            position: absolute;
-            top: 20px; right: 30px;
-            font-size: 2.5rem;
-            color: #ffffff;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-        .modal-close:hover { opacity: 1; }
-
-        .modal-title {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--modal-border);
-            padding-bottom: 20px;
-        }
-
-        .modal-split {
-            display: flex;
-            gap: 40px;
-        }
-
-        .modal-left-image {
-            flex: 1;
-            background: #0a0c12;
-            border: 1px solid var(--modal-border);
-            border-radius: 8px;
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-left-image span {
-            color: #00bcd4;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
-        }
-
-        .modal-right-text {
-            flex: 1;
-            font-family: 'Lato', sans-serif;
-            color: #a0aec0;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            overflow-y: auto;
-            max-height: 400px;
-        }
-
-        /* --- 5. FUTURE GOALS (CENTERED) --- */
-        #goals { text-align: center; }
-
-        #goals p {
-            max-width: 850px;
-            margin: 0 auto 30px auto;
-            font-size: 1.4rem;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--dark-brown);
-            line-height: 1.8;
-        }
-
-        /* --- 6. CONTACT PAGE (EXACTLY LIKE IMAGE 3) --- */
-        #contact {
-            background-color: var(--dark-brown);
-            color: #ffffff;
-            min-height: auto;
-            padding: 120px 10%;
-        }
-
-        #contact h2 {
-            color: #ffffff;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 700px;
-            margin: 0 auto;
-            gap: 50px;
-        }
-
-        .contact-block h4 {
-            color: #8a8179;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .contact-block p {
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 900px) {
-            .intro-container, .modal-split, .contact-layout { flex-direction: column; grid-template-columns: 1fr; }
-            .home-content h1 { font-size: 4rem; }
-            section { padding: 100px 8%; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#intro">Intro</a>
-        <a href="#about">About Me</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#goals">Goals</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="home">
-        <div class="home-content slide-up">
-            <h1>Praapti Agarwal</h1>
-            <p>Grade 10, IB &nbsp;&bull;&nbsp; Chaman Bhartiya School</p>
-        </div>
-    </section>
-
-    <section id="intro">
-        <h2 class="section-title slide-up">Intro</h2>
-        <div class="intro-container">
-            <div class="intro-box slide-left">
-                <p>When I was in second grade, my uncle brought home a DIY solar system kit for my brother and me. We spent the afternoon painting the models, but what actually changed everything was the small booklet I found at the bottom of the box. It was entirely about space—page after page of raw facts and astronomy. For a seven-year-old, it was mind-blowing. It was the first thing that showed me something real outside of my own bubble. That was the exact moment my brain clicked. It wasn't just about planets—it was the sudden realization that there is a massive, complex system governing the universe, and we can actually understand it. That little paper booklet is where my obsession with science started; it turned me into a kid who constantly needed to know the mechanics behind how our physical world works.</p>
-            </div>
-            <div class="intro-box slide-right">
-                <p>That drive to deconstruct and understand things became my greatest survival tool. I’ve changed schools seven times in my life, spending most of my childhood in Canada before making the biggest jump—moving to Bangalore when I was thirteen. Going from a familiar neighborhood to a completely new city and school system was jarring. But having to restart so many times taught me something critical: I approach new environments exactly the way I approach science. I observe, look for the patterns, and figure out the mechanics of my surroundings. Even when I’m dropped into a situation where nothing makes sense yet, I know how to break it down, adapt, and find my footing.</p>
-                <p>Being from a Marwari family, I grew up around people who think about how the world works in a very practical way. Business talk at family dinners, questions about value and ideas and "what problem does this solve?" That's just normal in my house. I think that's where my brain for building things and pitching projects comes from — it's been around me my whole life, even before I knew what entrepreneurship meant. Today, that’s exactly where my two sides meet: I have the scientific curiosity to obsess over how the universe works, and the ingrained, practical business sense to build things that actually fix problems.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title slide-up">About Me</h2>
-        <div class="about-container slide-up">
-            <p>Science is what I keep coming back to though, especially fields such as chemistry, physics, biology, and psychology. I have developed interests in these subjects because all of my curiosity comes from wanting to learn about the world deeply, and these subjects help me understand everything from the formation of matter and life to human behavior and all the complex systems. I love exploring how different branches of science are interconnected and work together to explain the universe we exist in. Learning how discoveries across multiple scientific fields collectively shape our understanding of existence, the laws of nature, and the processes that have created the world around us is what really excited me.</p>
-            <p>Alongside science, I've also been paying a lot of attention to AI lately. I really like exploring how AI is transforming fields such as medicine, engineering, research, and scientific development. What interests me about technology is its ability to expand human capabilities, improve efficiency, increase the speed of discovery significantly, and create entirely new possibilities for many different fields. I want to understand how that happens, not just hear about it.</p>
-            <p>I never looked at the world from one perspective. I enjoy learning through different fields because each one explains the reality we live in, in a different way.</p>
-            <p>But I'm not just a science person, I am also deeply interested in art. I draw, paint, do textured art, crochet, knit, macramé, dance, and play the piano. Honestly, I think my creative side and my science side help each other. When I'm crocheting something tricky, I'm problem-solving. When I'm painting, I notice tiny details I'd miss otherwise. The patience I build doing art is the same patience I need during a chess game or when a science project isn't working.</p>
-            <p>I read a lot too. Science books, psychology, some self-improvement, and fantasy fiction when I need a break from reality. Everything I do kind of comes from the same reason — I just really like understanding how things work.</p>
-            <p>And then there's badminton — which is the opposite of patience. It's fast and loud and my brain kind of shuts off in a good way, it helps me stay active and focused. Chess is the other end — slow, quiet, everything happening inside your head. It challenges me to think strategically, stay patient, and analyze situations carefully. I like that I need both.</p>
-        </div>
-    </section>
-
-    <section id="achievements">
-        <h2 class="section-title slide-up">Experiences & Achievements</h2>
-        <div class="grid-squares slide-up" id="square-container">
-            </div>
-    </section>
-
-    <div class="modal-bg" id="modal">
-        <div class="modal-window">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div class="modal-title" id="m-title">Project Title Here</div>
-            <div class="modal-split">
-                <div class="modal-left-image">
-                    <span id="m-image-text">Replace 'YOUR_IMAGE.jpg'</span>
-                </div>
-                <div class="modal-right-text" id="m-desc">
-                    Project description goes here.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="goals">
-        <h2 class="section-title slide-up">Future Goals</h2>
-        <div class="slide-up">
-            <p>I hope to continue exploring scientific research.</p>
-            <p>"I don't have one specific career picked out yet, and I'm okay with that. But the question I keep coming back to is: how can we use what we already know in smarter ways to fix the things that aren't working? Climate, energy, healthcare — I don't know where exactly I'll end up. But in five years, I want to be deep into research and drive new discoveries, shape the future of technology and science, create long-term impact on both humanity and the world around us."</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="slide-up">Contact Information</h2>
-        <div class="contact-layout slide-up">
-            <div class="contact-block">
-                <h4>Name</h4>
-                <p>Praapti Agarwal</p>
-                
-                <h4>School</h4>
-                <p>Chaman Bhartiya School</p>
-                
-                <h4>Grade</h4>
-                <p>10</p>
-            </div>
-            <div class="contact-block">
-                <h4>Email</h4>
-                <p>agarwalpraapti736@gmail.com</p>
-                
-                <h4>Phone</h4>
-                <p>8019867512<br>80742 14378</p>
-            </div>
-        </div>
-    </section>
-
+    <title>Praapti Agarwal | Applied Science Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script>
-        // 1. SLIDER TRANSITION ENGINE
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        base: '#f7fafc',
+                        dark: '#0f1724',
+                        accent: '#1f6feb',
+                        thermo: '#d6ff6a',
+                        iot: '#66d6e8'
+                    }
                 }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.slide-left, .slide-right, .slide-up').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // 2. PROJECT DATA
-        const projects = [
-            {
-                title: "India Rising Techventure – Vidyashilp University",
-                imgText: "Replace 'DRONE_IMAGE.jpg'",
-                desc: "Secured first place in the India Rising Techventure competition, in a Shark Tank. Our project was based on developing agricultural drones designed to be more accessible and practical for farmers while reducing the manual effort and improving productivity.<br><br>The drone does this by helping farmers in monitoring crops, spraying, and managing agricultural tasks. Unlike other drones, it is significantly cheaper and affordable for farmers. Presenting the project in a competitive environment helped me better understand how innovative ideas are evaluated based on presentation, impact, and real-world application."
-            },
-            {
-                title: "INSEF (Indian National Science & Engineering Fair)",
-                imgText: "Replace 'ECO_CATALYST_IMAGE.jpg'",
-                desc: "Successfully cleared the first round of INSEF and progressed to the second round with a project I created called the Eco-Catalyst. The project focused in the field of chemistry on redesigning the catalytic converter system used in car exhausts. Instead of only reducing harmful gases, the Eco-Catalyst aimed to convert carbon dioxide emissions into methane, which could potentially be reused as fuel for the vehicle itself. The idea combined environmental sustainability with energy efficiency by reducing pollution while also creating a reusable energy source. Participating in the competition gave me exposure to how scientific projects are created in research-focused environments."
-            },
-            {
-                title: "Tinkerfest – Chaman Bhartiya School",
-                imgText: "Replace 'TINKERFEST_IMAGE.jpg'",
-                desc: "Volunteered at Tinkerfest and also participated by creating a project that received an investment of ₹15,000 in a Shark. The event involved presenting ideas, interacting with judges and participants, and working collaboratively with your teammates. Volunteering also allowed me to observe how large-scale events are organized and managed."
-            },
-            {
-                title: "Stonehill Science Bowl",
-                imgText: "Replace 'SCIENCE_BOWL_IMAGE.jpg'",
-                desc: "Participated in the Stonehill Science Bowl, which had fast-paced scientific questioning and collaborative problem solving across multiple areas of science. The competition required quick thinking, teamwork, and the ability to apply scientific knowledge under pressure."
-            },
-            {
-                title: "Stonehill Technofest",
-                imgText: "Replace 'DOG_COLLAR_IMAGE.jpg'",
-                desc: "Participated in Stonehill Technofest with a project about a smart dog collar capable of detecting seizures in dogs. The collar I designed monitors changes in movement and behavior patterns that could indicate seizure activity, helping owners respond more quickly during emergencies. Working on the project allowed me to further explore how technology can be applied to health and safety even for animals. This competition showed me how to be able to work under pressure with a time limit."
-            },
-            {
-                title: "International Scientific and Practical Festival of the First Lobachevsky",
-                imgText: "Replace 'MIDNIGHT_SUN_IMAGE.jpg'",
-                desc: "Won first place in the initial round of an international competition with a project called The Midnight Sun. The concept focused on physics and generating electricity at night by using temperature differences between surfaces and the surrounding environment. The project explored alternative approaches to renewable energy generation and energy sustainability beyond traditional solar power systems. Following the competition, I was invited to participate in the next round in Russia."
-            },
-            {
-                title: "Harvard Crimson Business Competition",
-                imgText: "Replace 'HARVARD_IMAGE.jpg'",
-                desc: "Won a Harvard-associated competition and received an invitation related to the event in the United States in Harvard University. Participating in the competition was an encouraging experience that motivated me to continue exploring academic and innovation-focused opportunities."
-            },
-            {
-                title: "Interhouse Debate – Chaman Bhartiya School",
-                imgText: "Replace 'DEBATE_IMAGE.jpg'",
-                desc: "Received the “Best Speaker” award in an interhouse debate competition. This competition improved my ability to present ideas clearly in front of an audience. Winning this made me realize that being confident doesn't mean being sure you're right, it means being okay with saying what you think out loud."
-            },
-            {
-                title: "CBS Triumph Chess Competition",
-                imgText: "Replace 'CHESS_IMAGE.jpg'",
-                desc: "Won second place in the CBS Triumph Chess Competition. Participating in chess competitions are a funny kind of stressful, they are completely silent, and completely in your head. Every mistake is yours. I kind of like that, though."
-            },
-            {
-                title: "Extra match classes",
-                imgText: "Replace 'MATH_IMAGE.jpg'",
-                desc: "I taught sixth graders math concepts during extra math classes for an hour after school, led by my math teacher."
             }
-        ];
-
-        // 3. RENDER SQUARES & LINK MODAL
-        const squareContainer = document.getElementById('square-container');
-        const modal = document.getElementById('modal');
-
-        projects.forEach((proj, idx) => {
-            let div = document.createElement('div');
-            div.className = 'square';
-            // Extracts the first part of the title to keep the square clean
-            let shortTitle = proj.title.split('–')[0].split('(')[0].trim();
-            div.innerHTML = `<h3>${shortTitle}</h3>`;
-            div.onclick = () => openModal(idx);
-            squareContainer.appendChild(div);
-        });
-
-        function openModal(idx) {
-            document.getElementById('m-title').innerText = projects[idx].title;
-            document.getElementById('m-image-text').innerText = projects[idx].imgText;
-            document.getElementById('m-desc').innerHTML = projects[idx].desc;
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-
-        // Close when clicking off the modal window
-        window.onclick = function(e) {
-            if (e.target == modal) { closeModal(); }
         }
     </script>
+    <style>
+        body { background-color: #f7fafc; color: #0f1724; }
+        .nav-link { transition: all 0.2s ease-in-out; }
+        .nav-link:hover { color: #1f6feb; }
+    </style>
+</head>
+<body class="antialiased selection:bg-thermo selection:text-dark">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-base/90 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+        <div class="font-bold text-xl tracking-tight">Praapti<span class="text-accent">Agarwal</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="px-6 pt-32 pb-20 max-w-5xl mx-auto mt-8">
+        <div class="inline-block bg-gray-200 text-dark text-xs font-mono font-bold px-3 py-1 rounded-full mb-6">
+            Grade 10, IB • Chaman Bhartiya School
+        </div>
+        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+            Deconstructing systems.<br />
+            <span class="text-accent">Building solutions.</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mb-10 leading-relaxed">
+            How can we use what we already know in smarter ways to fix the things that aren't working? I'm deeply interested in chemistry, physics, and AI, applying scientific curiosity and practical business sense to create real-world impact.
+        </p>
+        <div class="flex space-x-4">
+            <a href="#projects" class="bg-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-accent transition-colors shadow-lg">View My Work</a>
+            <a href="#contact" class="border-2 border-gray-300 px-6 py-3 rounded text-sm font-semibold hover:border-accent hover:text-accent transition-colors">Collaborate</a>
+        </div>
+    </header>
+
+    <hr class="border-gray-200 max-w-5xl mx-auto" />
+
+    <!-- About Section -->
+    <section id="about" class="px-6 py-24 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+            <span class="w-8 h-1 bg-accent mr-4"></span> The Mechanics of My World
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-700 leading-relaxed">
+            <div>
+                <p class="mb-6">
+                    When I was in second grade, my uncle brought home a DIY solar system kit. The models were fun, but it was the small booklet at the bottom of the box that changed everything. It was my first realization that there is a massive, complex system governing the universe, and we can actually understand it. 
+                </p>
+                <p class="mb-6">
+                    That drive to deconstruct things became my greatest survival tool. Moving schools seven times—including a massive jump from Canada to Bangalore at thirteen—taught me to approach new environments exactly like science: observe, look for patterns, and figure out the mechanics.
+                </p>
+                <p>
+                    Growing up in a Marwari family, business talk and "what problem does this solve?" was normal dinner conversation. Today, my two sides meet right there: the scientific curiosity to obsess over how the universe works, and the ingrained, practical sense to build things that actually fix problems.
+                </p>
+            </div>
+            <div class="bg-white p-8 border border-gray-200 rounded-xl shadow-sm">
+                <h3 class="text-lg font-bold text-dark mb-4 border-b border-gray-100 pb-2">The Multi-Disciplinary Approach</h3>
+                <ul class="space-y-4 text-sm">
+                    <li><strong class="text-dark block mb-1">Core Sciences & AI:</strong> Exploring how chemistry, physics, and biology interconnect to explain reality, while investigating how AI transforms research, efficiency, and medical engineering.</li>
+                    <li><strong class="text-dark block mb-1">Creative Problem Solving:</strong> Crocheting, textured art, knitting, and playing piano. The patience built doing art directly translates to debugging a failing science project.</li>
+                    <li><strong class="text-dark block mb-1">Balance of Pace:</strong> Badminton for fast, loud, active focus. Chess for slow, quiet, strategic thinking where every mistake is your own.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="bg-white py-24 border-y border-gray-200">
+        <div class="px-6 max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="w-8 h-1 bg-thermo mr-4"></span> Applied Projects
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- The Midnight Sun -->
+                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-thermo/20 rounded-bl-full -z-10"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-thermo/40 text-dark text-xs font-bold px-2 py-1 rounded">Physics / Energy</span>
+                        <span class="text-xs font-mono text-gray-500">1st Place - Int'l</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">The Midnight Sun</h3>
+                    <p class="text-gray-600 text-sm mb-6">
+                        A concept generating electricity at night by utilizing temperature differences between surfaces and the surrounding environment, exploring alternatives beyond traditional solar power.
+                    </p>
+                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-mono text-gray-500">BOM Cost: ₹1,400 (w/o future investigations)</span>
+                        <span class="text-accent text-sm font-semibold">Lobachevsky Festival (Russia)</span>
+                    </div>
+                </div>
+
+                <!-- Eco-Catalyst -->
+                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-gray-200 text-dark text-xs font-bold px-2 py-1 rounded">Chemistry</span>
+                        <span class="text-xs font-mono text-gray-500">INSEF Round 2</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">The Eco-Catalyst</h3>
+                    <p class="text-gray-600 text-sm mb-6">
+                        Redesigning automotive catalytic converters to not just reduce harmful gases, but convert CO2 emissions into methane for potential reuse as vehicle fuel.
+                    </p>
+                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-mono text-gray-500">Status: Research & Design</span>
+                    </div>
+                </div>
+
+                <!-- Smart Dog Collar -->
+                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-iot/40 text-dark text-xs font-bold px-2 py-1 rounded">IoT / Health Tech</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Seizure-Detecting Collar</h3>
+                    <p class="text-gray-600 text-sm mb-6">
+                        A smart dog collar designed to monitor changes in movement and behavior patterns to indicate seizure activity, allowing owners to respond rapidly during emergencies.
+                    </p>
+                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-mono text-gray-500">Event: Stonehill Technofest</span>
+                    </div>
+                </div>
+
+                <!-- Agri-Drone -->
+                <div class="bg-base border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-gray-200 text-dark text-xs font-bold px-2 py-1 rounded">Robotics / Agriculture</span>
+                        <span class="text-xs font-mono text-gray-500">1st Place</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Accessible Agri-Drone</h3>
+                    <p class="text-gray-600 text-sm mb-6">
+                        An affordable drone system for farmers to monitor crops, spray, and manage tasks, drastically reducing manual effort compared to existing market solutions.
+                    </p>
+                    <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-mono text-gray-500">Event: India Rising Techventure</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="px-6 py-24 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+            <span class="w-8 h-1 bg-accent mr-4"></span> Experience & Competitions
+        </h2>
+        
+        <div class="space-y-6">
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">Harvard Crimson Business Competition</h4>
+                    <p class="text-sm text-gray-600 mt-1">Winner & Invitee to Harvard University, USA.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Business / Pitch</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">Tinkerfest — Shark Tank Pitch</h4>
+                    <p class="text-sm text-gray-600 mt-1">Secured ₹15,000 investment for a collaborative project while managing event volunteer duties.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Entrepreneurship</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">Interhouse Debate — Best Speaker</h4>
+                    <p class="text-sm text-gray-600 mt-1">Realized that confidence isn't about being sure you're right, but being okay with speaking your mind.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Public Speaking</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">Stonehill Science Bowl</h4>
+                    <p class="text-sm text-gray-600 mt-1">Fast-paced collaborative problem solving across multiple scientific disciplines.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Science Theory</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">CBS Triumph Chess Competition</h4>
+                    <p class="text-sm text-gray-600 mt-1">Secured 2nd place. Thriving in the high-pressure, silent, and internal strategy environment.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Strategy</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6">
+                <div>
+                    <h4 class="text-lg font-bold">Peer Education</h4>
+                    <p class="text-sm text-gray-600 mt-1">Taught complex math concepts to sixth-grade students in after-school sessions.</p>
+                </div>
+                <span class="mt-2 md:mt-0 text-xs font-mono bg-gray-100 px-3 py-1 rounded">Leadership</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-dark text-white py-16">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Let's Build Something.</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+                Whether it's discussing the intersection of AI and healthcare, collaborating on a new hardware build, or just talking science. 
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 font-mono text-sm">
+                <a href="mailto:agarwalpraapti736@gmail.com" class="bg-accent hover:bg-blue-500 text-white px-6 py-3 rounded transition-colors shadow-lg">
+                    agarwalpraapti736@gmail.com
+                </a>
+                <span class="text-gray-500">+91 8019867512  //  +91 8074214378</span>
+            </div>
+            <p class="text-xs text-gray-600 font-mono">
+                &copy; 2026 Praapti Agarwal. Hand-coded for applied science.
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
